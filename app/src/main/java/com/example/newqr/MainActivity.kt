@@ -27,18 +27,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        qrImage = findViewById(R.id.imageViewQR)
-        etGenerate = findViewById(R.id.etForGenerate)
-        btnScan = findViewById(R.id.buttonScanQR)
-        btnScan.setOnClickListener {
-//            startActivity(Intent(this, ScannerActivity::class.java))
-            checkCameraPermissions()
-        }
-        btnGenerate = findViewById(R.id.buttonQR)
-        btnGenerate.setOnClickListener {
-            val textGenerate = etGenerate.text.toString()
-            generateQR(textGenerate)
-        }
     }
 
     private fun generateQR(text: String) {
