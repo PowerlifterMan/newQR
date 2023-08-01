@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_generate_label">GENERATE QR</string>
+    <string name="default_generated_text">Z</string>
+</resources>
