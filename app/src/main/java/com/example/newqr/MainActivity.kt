@@ -14,6 +14,7 @@ import androidmads.library.qrgenearator.QRGEncoder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.newqr.databinding.ActivityMainBinding
 import java.io.WriteAbortedException
 
 
@@ -22,11 +23,18 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnGenerate: Button
     lateinit var btnScan: Button
     lateinit var etGenerate: EditText
-
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+//        setContentView(R.layout.activity_main)
+        binding.bottomMenu.setOnItemSelectedListener {menuItem ->
+            when(menuItem){
+
+            }
+        }
     }
 
     private fun generateQR(text: String) {
@@ -63,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode){
+        when (requestCode) {
             CAMERA_REQUEST_CODE -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startActivity(Intent(this, ScannerActivity::class.java))
             }
